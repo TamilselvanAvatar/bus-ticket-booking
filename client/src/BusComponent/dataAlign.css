@@ -1,0 +1,17 @@
+td span {   
+    padding: 2px;
+    border: 2px solid rgb(52, 97, 245);
+    width: 100%;
+    font-size: small;
+    border-radius: 10px;
+    background-color: aqua;  
+    text-underline-offset: unset; 
+}
+
+a{
+    text-decoration: none;
+}
+
+td span :hover{
+    cursor: pointer;
+}

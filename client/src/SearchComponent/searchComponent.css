@@ -1,0 +1,46 @@
+
+.search{
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-direction: row;
+}
+
+div label{
+    font-size: medium;
+    font-weight: bold;
+    margin: 15px;
+}
+
+input {
+    padding: 7px;
+    border-radius: 10px;
+}
+
+.searchBtn{
+    border-radius: 10px;
+    box-sizing: content-box;
+    padding: 7px ;
+    width: 100%;
+    background-color: rgb(6, 232, 6);
+}
+
+button:hover{
+    cursor: pointer;
+    font-style: italic;
+}
+
+input:focus{
+    box-shadow:2px 1px 12px rgb(9, 83, 242); 
+}
+
+button:focus{
+    box-shadow:2px 1px 12px rgb(9, 83, 242); 
+}
+
+.error{
+    color: red;
+    font-style: italic;
+    justify-content: center;
+    margin-top: 20px;
+}

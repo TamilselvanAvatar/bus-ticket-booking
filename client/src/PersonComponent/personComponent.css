@@ -1,0 +1,36 @@
+div{
+    margin:  10px 10px;
+}
+
+table{
+    border-collapse: separate;
+    width: auto;
+}
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.book {
+    margin-top: 5%;
+    width: 100%;
+    
+}
+
+.book span{
+    border: 1px solid rgb(94, 47, 233);
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 10px;
+    background-color: rgb(52, 236, 141);
+}
+
+a{
+    text-decoration: none;
+}
+a:hover{
+    cursor: pointer;
+}
