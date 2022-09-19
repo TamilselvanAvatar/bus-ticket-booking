@@ -30,7 +30,8 @@ const DataAlign = ({ data, filterObj }) => {
       if (
         el.origin.toLowerCase() === filterObj.origin.toLowerCase() &&
         el.destination.toLowerCase() === filterObj.destination.toLowerCase() &&
-        el.availableDay.includes(days[date])
+        el.availableDay.includes(days[date]) &&
+		el.seatAvaivable > 0
       ) {
         return (
           <tr key={el.id}>
