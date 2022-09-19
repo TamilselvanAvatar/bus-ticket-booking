@@ -15,36 +15,42 @@ const PersonComponent = (props) => {
   const onConfirm = () => {
     let seatAvaivable = bus.seatAvaivable - 1;
     let person = {
-      name,
-      age,
-      phNo,
+      name: name,
+      age: age,
+      phNo: phNo,
+      gender:gender,
       origin: bus.origin,
       destination: bus.destination,
       busNo: bus.busNo,
       arrivalTime: bus.originTime,
     };
 
-    console.log(bus,person)
+    bus.seatAvaivable = seatAvaivable;
+    console.log(bus, person);
     axios
-      .patch(`http://localhost:3000/api/updateBusDetail/${bus.id}`, 
-       { ...bus, seatAvaivable: seatAvaivable }
-      )
+      .request({
+        url: `http://localhost:3000/api/updateBusDetail/${bus._id}`,
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        data: JSON.stringify({ ...bus }),
+      })
       .then(
         (data) => {
           if (data != null) {
             axios
-              .post(
-                "http://localhost:3000/api/postPersonInfo",
-                { ...person },
+              .request(
                 {
+                  url : "http://localhost:3000/api/postPersonInfo",
+                  method : "POST",
                   headers: {
                     "content-type": "application/json",
                   },
+                  data: JSON.stringify({ ...person }),
                 }
               )
               .then(
                 (data) => {
-                  setMessage("You Will receive mail shortly");
+                  setMessage("You will receive mail shortly");
                 },
                 (err) => {
                   console.log(err);
@@ -140,14 +146,20 @@ const PersonComponent = (props) => {
         <div className="book">
           {name !== "" && age !== "" && phNo !== "" && gender !== "" && (
             <span>
-              <a onClick={()=>{onConfirm()}}>Confirm</a>
+              <a
+                onClick={() => {
+                  onConfirm();
+                }}
+              >
+                Confirm
+              </a>
             </span>
           )}
         </div>
       </div>
     );
   } else {
-    return <div>{message}</div>;
+    return <div style={{color:"green","fontStyle" : "italic"}}>{message}</div>;
   }
 };
 
